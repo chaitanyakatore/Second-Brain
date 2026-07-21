@@ -1,0 +1,49 @@
+{
+  "name": "company-brain-vscode",
+  "displayName": "Company Brain & Enterprise Semantic Cache",
+  "description": "Centralized intelligence proxy and semantic cache sidebar for VS Code",
+  "version": "1.0.0",
+  "publisher": "company-brain",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:companyBrain.chatView",
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "company-brain-container",
+          "title": "Company Brain",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "company-brain-container": [
+        {
+          "type": "webview",
+          "id": "companyBrain.chatView",
+          "name": "Enterprise Cache Chat"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.3"
+  }
+}
